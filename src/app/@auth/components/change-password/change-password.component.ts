@@ -5,10 +5,8 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.scss']
 })
-export class NgxChangePasswordComponent implements OnInit {
+export class NgxChangePasswordComponent {
 
   constructor() { }
-
-  ngOnInit(): void { }
 
 }

@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
     private authService: NbAuthService,
     private router: Router,
     private userStore: UserStore,
-    private userInit: InitUserService,
+    // private userInit: InitUserService,
     private roleProvider: NbRoleProvider,
     private toastrService: NbToastrService
     ) {}
