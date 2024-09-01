@@ -65,9 +65,9 @@ export const authOptions = {
     }),
   ],
   forms: {
-    // login: {
-    //   socialLinks: socialLinks,
-    // },
+    login: {
+      // socialLinks: socialLinks,
+    },
     // register: {
     //   socialLinks: socialLinks,
     // },

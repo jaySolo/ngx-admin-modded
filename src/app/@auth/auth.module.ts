@@ -17,13 +17,7 @@ import {
 } from '@nebular/auth';
 import { AuthInterceptor } from './auth.interceptor';
 import { AuthGuard } from './auth.guard';
-import {
-  AdminGuard,
-  // AttendanceSheetManagerGuard,
-  // ChangeFormReviewerGuard,
-  // ChangeFormSubmitterGuard,
-  // PlacementManagementGuard
-} from './role.guard';
+import { AdminGuard } from './role.guard';
 import { AuthPipe } from './auth.pipe';
 import { RoleProvider } from './role.provider';
 import { NbRoleProvider, NbSecurityModule } from '@nebular/security';
@@ -56,19 +50,13 @@ import { NgxChangePasswordComponent } from './components/change-password/change-
 import {
  NgxChangePasswordFormComponent
 } from './components/change-password/change-password-form/change-password-form.component';
-// import { MessagingService } from '../@core/backend/services/messaging.service';
 import { UserData } from '../@core/interfaces/common/users';
 import { UsersService } from '../@core/services/users.service';
-// import { MessagesData } from '../@core/interfaces/message';
 
 
 const GUARDS = [
   AuthGuard,
   AdminGuard,
-  // AttendanceSheetManagerGuard,
-  // ChangeFormSubmitterGuard,
-  // ChangeFormReviewerGuard,
-  // PlacementManagementGuard
 ];
 const PIPES = [AuthPipe];
 const COMPONENTS = [
@@ -129,7 +117,6 @@ export class AuthModule {
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
         ...GUARDS,
         { provide: UserData, useClass: UsersService },
-        // { provide: MessagesData, useClass: MessagingService },
       ],
     };
   }

@@ -10,11 +10,12 @@ import { UsersApi } from '../api/users.api';
 import { UserData, User } from '../interfaces/common/users';
 import { DataSource } from 'ng2-smart-table/lib/lib/data-source/data-source';
 import { map } from 'rxjs/operators';
+import { NbTokenStorage } from '@nebular/auth';
 
 @Injectable()
 export class UsersService extends UserData {
 
-  constructor(private api: UsersApi) {
+  constructor(private api: UsersApi, private tokenStore: NbTokenStorage) {
     super();
   }
 
@@ -31,7 +32,7 @@ export class UsersService extends UserData {
   }
 
   getCurrentUser(): Observable<User> {
-    return this.api.getCurrent()
+    return this.api.getCurrent(this.tokenStore.get())
       .pipe(
         map(u => {
           if (u && !u.setting) {

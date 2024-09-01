@@ -5,7 +5,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import { HttpParams } from '@angular/common/http';
+import { HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpService } from '../services/common/http.service';
 // import { map } from 'rxjs/operators';
@@ -42,8 +42,13 @@ export class UsersApi {
       // })));
   }
 
-  getCurrent(): Observable<any> {
-    return this.api.get(`${this.apiController}/me?populate=*`);
+  getCurrent(token?: any): Observable<any> {
+
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers =  headers.set('Authorization', `Bearer ${token}`);
+
+    return this.api.get(`${this.apiController}/me`, { headers: headers});
       // .pipe(map(data => {
       //   const picture = `${this.api.API_BASE_URL}/${this.apiController}/${data.id}/photo`;
       //   return { ...data, picture };

@@ -48,7 +48,8 @@ export class NgxLoginComponent implements OnInit, OnDestroy {
   get email() { return this.loginForm.get('email'); }
   get password() { return this.loginForm.get('password'); }
 
-  constructor(protected service: NbAuthService,
+  constructor(
+    protected auth: NbAuthService,
     @Inject(NB_AUTH_OPTIONS) protected options = {},
     protected cd: ChangeDetectorRef,
     protected themeService: NbThemeService,
@@ -88,11 +89,12 @@ export class NgxLoginComponent implements OnInit, OnDestroy {
     this.messages = [];
     this.submitted = true;
 
-    this.service.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
+    this.auth.authenticate(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
 
       if (result.isSuccess()) {
         this.messages = result.getMessages();
+
         this.initUser();
       } else {
         this.errors = result.getErrors();
