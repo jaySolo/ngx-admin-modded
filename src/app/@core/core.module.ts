@@ -11,16 +11,14 @@ import {
   SeoService,
   StateService,
 } from './utils';
-import { UserData } from './data/users';
+import { UserData } from './interfaces/common/users';
 import { SmartTableData } from './data/smart-table';
 
-import { UsersService } from './mock/users.service';
-import { SmartTableService } from './mock/smart-table.service';
-import { MockDataModule } from './mock/mock-data.module';
 import { UserStore } from './stores/user.store';
 import { InitUserService } from '../@theme/services/init-user.service';
 import { SettingsService } from './services/settings.service';
 import { CommonBackendModule } from './common-backend.module';
+import { UsersService } from './services/users.service';
 
 const socialLinks = [
   {
@@ -42,7 +40,7 @@ const socialLinks = [
 
 const DATA_SERVICES = [
   { provide: UserData, useClass: UsersService },
-  { provide: SmartTableData, useClass: SmartTableService },
+  // { provide: SmartTableData, useClass: SmartTableDataService },
 ];
 
 export class NbSimpleRoleProvider extends NbRoleProvider {

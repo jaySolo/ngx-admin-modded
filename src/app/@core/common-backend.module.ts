@@ -6,12 +6,12 @@ import { UserPermissionsApi } from './api/permissions.api';
 import { UserRolesApi } from './api/roles.api';
 import { SettingsApi } from './api/settings.api';
 import { UsersApi } from './api/users.api';
-import { SmartTableQueryInterceptor } from './data/smart-table-query-interceptor';
-import { UserData } from './data/users';
+import { SmartTableQueryInterceptor } from './services/common/smart-table-query-interceptor';
+import { UserData } from '../@core/interfaces/common/users';
 import { SettingsData } from './interfaces/common/settings';
-import { UsersService } from './mock/users.service';
 import { HttpService } from './services/common/http.service';
 import { SettingsService } from './services/settings.service';
+import { UsersService } from './services/users.service';
 
 
 

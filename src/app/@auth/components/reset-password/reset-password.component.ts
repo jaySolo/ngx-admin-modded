@@ -10,6 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NB_AUTH_OPTIONS, NbAuthService, NbAuthResult } from '@nebular/auth';
 import { getDeepFromObject } from '../../helpers';
+import { UserData } from '../../../@core/interfaces/common/users';
 
 @Component({
   selector: 'ngx-reset-password-page',
@@ -36,7 +37,7 @@ export class NgxResetPasswordComponent implements OnInit {
     protected cd: ChangeDetectorRef,
     protected fb: FormBuilder,
     protected router: Router,
-    private userService: UsersService,
+    private userService: UserData,
     private userStore: UserStore) { }
 
   ngOnInit(): void {
