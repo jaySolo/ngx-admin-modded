@@ -13,9 +13,3 @@ export interface Contacts {
 export interface RecentUsers extends Contacts {
   time: number;
 }
-
-export abstract class UserData {
-  abstract getUsers(): Observable<User[]>;
-  abstract getContacts(): Observable<Contacts[]>;
-  abstract getRecentUsers(): Observable<RecentUsers[]>;
-}
