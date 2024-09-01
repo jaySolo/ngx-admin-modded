@@ -18,13 +18,13 @@ export interface User {
   username: string;
   name?: string;
   // age: number;
-  // picture: string;
+  picture: string;
   // address: Address;
   settings?: Settings;
   provider?: string;
   confirmed?: boolean;
   blocked?: boolean;
-  role?: UserRole[];
+  role?: UserRole;
   status?: string;
   departments?: any[];
   password_expired?: boolean;

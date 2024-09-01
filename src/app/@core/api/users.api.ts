@@ -48,7 +48,7 @@ export class UsersApi {
     headers.append('Content-Type', 'application/json');
     headers =  headers.set('Authorization', `Bearer ${token}`);
 
-    return this.api.get(`${this.apiController}/me`, { headers: headers});
+    return this.api.get(`${this.apiController}/me?populate=role`, { headers: headers});
       // .pipe(map(data => {
       //   const picture = `${this.api.API_BASE_URL}/${this.apiController}/${data.id}/photo`;
       //   return { ...data, picture };

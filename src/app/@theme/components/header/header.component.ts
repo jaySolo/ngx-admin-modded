@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NbMediaBreakpointsService, NbMenuService, NbSidebarService, NbThemeService } from '@nebular/theme';
 
-import { UserData } from '../../../@core/interfaces/common/users';
+import { User, UserData } from '../../../@core/interfaces/common/users';
 import { LayoutService } from '../../../@core/utils';
 import { map, takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
@@ -15,7 +15,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
-  user: any;
+  user: {
+    name: string,
+    title: string,
+    picture?: string,
+  };
 
   themes = [
     {
@@ -60,7 +64,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.userService.getCurrentUser()
       .pipe(takeUntil(this.destroy$))
-      .subscribe((users: any) => this.user = users.nick);
+      .subscribe((usr: User) => {
+        this.user = {
+          name: `${usr.firstName} ${usr.lastName}`,
+          title: usr.role.name,
+        };
+      });
 
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()
