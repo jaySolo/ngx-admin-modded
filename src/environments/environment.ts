@@ -10,4 +10,6 @@
 
 export const environment = {
   production: false,
+
+  API_BASE_URL: "http://localhost:1337/api",    // url for local Strapi-based Backend
 };

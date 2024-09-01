@@ -14,9 +14,13 @@ import {
 import { UserData } from './data/users';
 import { SmartTableData } from './data/smart-table';
 
-import { UserService } from './mock/users.service';
+import { UsersService } from './mock/users.service';
 import { SmartTableService } from './mock/smart-table.service';
 import { MockDataModule } from './mock/mock-data.module';
+import { UserStore } from './stores/user.store';
+import { InitUserService } from '../@theme/services/init-user.service';
+import { SettingsService } from './services/settings.service';
+import { CommonBackendModule } from './common-backend.module';
 
 const socialLinks = [
   {
@@ -37,7 +41,7 @@ const socialLinks = [
 ];
 
 const DATA_SERVICES = [
-  { provide: UserData, useClass: UserService },
+  { provide: UserData, useClass: UsersService },
   { provide: SmartTableData, useClass: SmartTableService },
 ];
 
@@ -49,7 +53,8 @@ export class NbSimpleRoleProvider extends NbRoleProvider {
 }
 
 export const NB_CORE_PROVIDERS = [
-  ...MockDataModule.forRoot().providers,
+  ...CommonBackendModule.forRoot().providers,
+  // ...MockDataModule.forRoot().providers,
   ...DATA_SERVICES,
   ...NbAuthModule.forRoot({
 
@@ -111,6 +116,11 @@ export class CoreModule {
       ngModule: CoreModule,
       providers: [
         ...NB_CORE_PROVIDERS,
+
+        UserStore,
+        UsersService,
+        InitUserService,
+        SettingsService,
       ],
     };
   }

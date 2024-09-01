@@ -1,11 +1,11 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { UserService } from './users.service';
+import { UsersService } from './users.service';
 import { SmartTableService } from './smart-table.service';
 
 const SERVICES = [
-  UserService,
+  UsersService,
   SmartTableService,
 ];
 

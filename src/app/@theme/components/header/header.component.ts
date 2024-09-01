@@ -38,7 +38,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
+  userMenu = this.getMenuItems();
 
   constructor(private sidebarService: NbSidebarService,
               private menuService: NbMenuService,
@@ -46,6 +46,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
               private userService: UserData,
               private layoutService: LayoutService,
               private breakpointService: NbMediaBreakpointsService) {
+  }
+
+  getMenuItems() {
+    return [
+      { title: 'My Account', link: '/pages/my-account/profile' },
+      { title: 'Log out', link: '/auth/logout' },
+    ];
   }
 
   ngOnInit() {

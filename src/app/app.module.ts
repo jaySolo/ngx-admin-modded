@@ -21,6 +21,7 @@ import {
   NbWindowModule,
 } from '@nebular/theme';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { AuthModule } from './@auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +30,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+
+    AuthModule.forRoot(),
+
     NbSidebarModule.forRoot(),
     NbMenuModule.forRoot(),
     NbDatepickerModule.forRoot(),
