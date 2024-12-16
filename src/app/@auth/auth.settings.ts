@@ -51,7 +51,7 @@ export const authOptions = {
       //   method: 'post',
       },
       requestPass: {
-        endpoint: '/auth/request-password',
+        endpoint: '/auth/forgot-password',
         method: 'post',
       },
       resetPass: {
