@@ -37,7 +37,7 @@ const routes: Routes = [{
       component: NgxRequestPasswordComponent,
     },
     {
-      path: 'reset-password',
+      path: 'reset-password/:code',
       component: NgxResetPasswordComponent,
     },
     {

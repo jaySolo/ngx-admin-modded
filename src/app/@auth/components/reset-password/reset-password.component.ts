@@ -7,7 +7,7 @@ import { UsersService } from '../../../@core/services/users.service';
  */
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NB_AUTH_OPTIONS, NbAuthService, NbAuthResult } from '@nebular/auth';
 import { getDeepFromObject } from '../../helpers';
 import { UserData } from '../../../@core/interfaces/common/users';
@@ -36,9 +36,21 @@ export class NgxResetPasswordComponent implements OnInit {
     @Inject(NB_AUTH_OPTIONS) protected options = {},
     protected cd: ChangeDetectorRef,
     protected fb: FormBuilder,
+    private uri: ActivatedRoute,
     protected router: Router,
     private userService: UserData,
-    private userStore: UserStore) { }
+    private userStore: UserStore,
+  ) {
+    this.getResetCode();
+  }
+
+
+  private getResetCode() {
+    this.user = {
+      code: this.uri.snapshot?.paramMap?.get("code"),
+    };
+  }
+
 
   ngOnInit(): void {
     const passwordValidators = [
@@ -59,7 +71,11 @@ export class NgxResetPasswordComponent implements OnInit {
   resetPass(): void {
     this.errors = this.messages = [];
     this.submitted = true;
-    this.user = this.resetPasswordForm.value;
+    this.user = { 
+      ...this.user,
+      password: this.resetPasswordForm.value?.password,
+      passwordConfirmation: this.resetPasswordForm.value?.confirmPassword,
+    };
 
     this.service.resetPassword(this.strategy, this.user).subscribe((result: NbAuthResult) => {
       this.submitted = false;
