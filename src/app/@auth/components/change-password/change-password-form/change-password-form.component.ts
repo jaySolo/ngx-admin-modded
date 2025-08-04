@@ -1,5 +1,5 @@
 import { UserStore } from '../../../../@core/stores/user.store';
-import { UsersService } from '../../../../@core/services/users.service';
+import { UsersService } from '../../../../@core/services/auth/users.service';
 /*
  * Copyright (c) Akveo 2019. All Rights Reserved.
  * Licensed under the Single Application / Multi Application License.
@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { Router } from '@angular/router';
 import { NB_AUTH_OPTIONS, NbAuthService, NbAuthResult } from '@nebular/auth';
 import { getDeepFromObject } from '../../../helpers';
-import { UserData } from '../../../../@core/interfaces/common/users';
+import { UserData } from '../../../../@core/interfaces/auth/users';
 
 @Component({
   selector: 'ngx-change-password-form',
