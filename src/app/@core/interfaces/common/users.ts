@@ -5,7 +5,7 @@
  */
 
 import { Observable } from 'rxjs';
-import { DataSource } from 'ng2-smart-table/lib/lib/data-source/data-source';
+import { DataSource } from 'angular2-smart-table';
 import { Settings } from './settings';
 // import { Address } from './address';
 import { UserRole } from './user-role';

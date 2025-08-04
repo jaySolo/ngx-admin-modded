@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UsersApi } from '../api/users.api';
 import { UserData, User } from '../interfaces/common/users';
-import { DataSource } from 'ng2-smart-table/lib/lib/data-source/data-source';
+import { DataSource } from 'angular2-smart-table';
 import { map } from 'rxjs/operators';
 import { NbTokenStorage } from '@nebular/auth';
 

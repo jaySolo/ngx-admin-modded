@@ -1,4 +1,4 @@
-import { DataSource } from "ng2-smart-table/lib/lib/data-source/data-source";
+import { DataSource } from "angular2-smart-table";
 import { Observable } from "rxjs";
 import { User } from "./users";
 import { UserPermission } from "./user-permission";

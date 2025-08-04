@@ -5,7 +5,7 @@
  */
 
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { DefaultFilter } from 'ng2-smart-table';
+import { DefaultFilter } from 'angular2-smart-table';  
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 

@@ -8,8 +8,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
-import { DataSource } from 'ng2-smart-table/lib/lib/data-source/data-source';
-import { ServerDataSource } from 'ng2-smart-table';
+import { DataSource, ServerDataSource } from 'angular2-smart-table';
+
 
 @Injectable()
 export class HttpService {
