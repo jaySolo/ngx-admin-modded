@@ -50,8 +50,7 @@ import { NgxChangePasswordComponent } from './components/change-password/change-
 import {
  NgxChangePasswordFormComponent
 } from './components/change-password/change-password-form/change-password-form.component';
-import { UserData } from '../@core/interfaces/common/users';
-import { UsersService } from '../@core/services/users.service';
+import { MonitoringInterceptor } from './monitoring.interceptor';
 
 
 const GUARDS = [
@@ -115,8 +114,8 @@ export class AuthModule {
         { provide: NB_AUTH_TOKEN_INTERCEPTOR_FILTER, useValue: filterInterceptorRequest },
         { provide: HTTP_INTERCEPTORS, useClass: NbAuthJWTInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: MonitoringInterceptor, multi: true },
         ...GUARDS,
-        { provide: UserData, useClass: UsersService },
       ],
     };
   }

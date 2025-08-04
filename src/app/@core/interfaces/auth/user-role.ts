@@ -1,7 +1,7 @@
-import { DataSource } from "angular2-smart-table";
-import { Observable } from "rxjs";
-import { User } from "./users";
-import { UserPermission } from "./user-permission";
+import { DataSource } from 'angular2-smart-table';
+import { Observable } from 'rxjs';
+import { User } from './users';
+import { UserPermission } from './user-permission';
 
 export class UserRole {
   id?: string;

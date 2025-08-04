@@ -31,6 +31,7 @@ import { AuthModule } from './@auth/auth.module';
     HttpClientModule,
     AppRoutingModule,
 
+    CoreModule.forRoot(),
     AuthModule.forRoot(),
 
     NbSidebarModule.forRoot(),
@@ -42,7 +43,6 @@ import { AuthModule } from './@auth/auth.module';
     NbChatModule.forRoot({
       messageGoogleMapKey: 'AIzaSyA_wNuCzia92MAmdLRzmqitRGvCF7wCZPY',
     }),
-    CoreModule.forRoot(),
     ThemeModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),

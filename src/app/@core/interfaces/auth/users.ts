@@ -6,7 +6,7 @@
 
 import { Observable } from 'rxjs';
 import { DataSource } from 'angular2-smart-table';
-import { Settings } from './settings';
+import { Settings } from '../common/settings';
 // import { Address } from './address';
 import { UserRole } from './user-role';
 
@@ -18,7 +18,7 @@ export interface User {
   username: string;
   name?: string;
   // age: number;
-  picture: string;
+  picture?: string;
   // address: Address;
   settings?: Settings;
   provider?: string;

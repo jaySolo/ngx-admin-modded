@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { UserPermission, UserPermissionData } from '../interfaces/common/user-permission';
-import { DataSource } from 'ng2-smart-table/lib/lib/data-source/data-source';
+import { UserPermission, UserPermissionData } from '../../interfaces/auth/user-permission';
+import { DataSource } from 'angular2-smart-table';
 import { Observable } from 'rxjs';
-import { UserPermissionsApi } from '../api/permissions.api';
+import { UserPermissionsApi } from '../../api/permissions.api';
 import { map } from 'rxjs/operators';
 
 @Injectable()

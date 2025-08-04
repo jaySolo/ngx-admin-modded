@@ -5,7 +5,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import { User } from '../interfaces/common/users';
+import { User } from '../interfaces/auth/users';
 import { BehaviorSubject } from 'rxjs';
 import { share } from 'rxjs/operators';
 

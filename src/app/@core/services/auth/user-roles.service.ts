@@ -1,9 +1,9 @@
-import { Injectable } from "@angular/core";
-import { UserRole, UserRoleData } from "../../interfaces/user-role";
-import { map } from "leaflet";
-import { DataSource } from "ng2-smart-table/lib/lib/data-source/data-source";
-import { Observable } from "rxjs";
-import { UserRolesApi } from "../api/roles.api";
+import { Injectable } from '@angular/core';
+import { map } from 'leaflet';
+import { DataSource } from 'angular2-smart-table';
+import { Observable } from 'rxjs';
+import { UserRolesApi } from '../../api/roles.api';
+import { UserRole, UserRoleData } from '../../interfaces/auth/user-role';
 
 @Injectable()
 export class UserRolesService extends UserRoleData {

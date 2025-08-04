@@ -1,5 +1,5 @@
-import { DataSource } from "angular2-smart-table";
-import { Observable } from "rxjs";
+import { DataSource } from 'angular2-smart-table';
+import { Observable } from 'rxjs';
 
 export class UserPermission {
   id:	string;

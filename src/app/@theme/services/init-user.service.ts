@@ -5,7 +5,7 @@
  */
 
 import { Observable } from 'rxjs';
-import { User, UserData } from '../../@core/interfaces/common/users';
+import { User, UserData } from '../../@core/interfaces/auth/users';
 import { tap } from 'rxjs/operators';
 import { UserStore } from '../../@core/stores/user.store';
 import { Injectable } from '@angular/core';
