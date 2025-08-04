@@ -1,0 +1,10 @@
+@import "../../../@theme/styles/themes";
+
+::ng-deep nb-dialog-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+::ng-deep ng2-smart-table-pager {
+  justify-content: center !important;
+}

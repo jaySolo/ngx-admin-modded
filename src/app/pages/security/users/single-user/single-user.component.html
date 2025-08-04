@@ -1,0 +1,48 @@
+<ng-template #delUsrDialog let-data let-ref="delUsrDialogRef">
+  <nb-card style="min-width: 765px">
+    <nb-card-header>
+       <h1>Confirm Deleting User Account</h1>
+    </nb-card-header>
+    <nb-card-body>
+       <div class="row text-center">
+          <p class="col h4 font-weight-light text-center text-danger mt-2 mb-4">
+             Are you sure that you wish to delete the following user?
+          </p>
+       </div>
+       <ngx-user-info [user]="user" [isModal]="true"></ngx-user-info>
+    </nb-card-body>
+    <nb-card-footer class="text-center">
+      <button (click)="deleteUser()" class="btn btn-danger pl-5 pr-5 mr-md-3">Yes, delete user</button>
+      <button (click)="dismissDialog()" class="btn btn-outline-secondary pl-4 pr-4">Close</button>
+    </nb-card-footer>
+ </nb-card>
+</ng-template>
+
+<div class="page-title row col-12 mb-3">
+  <div class="text">
+    <h4 class="mb-0 pb-0">
+      <span *ngIf="isNewUser">Create new User</span>
+      <span *ngIf="!isNewUser && isEditable">Update Information for {{user?.firstName ?? ''}} {{user?.lastName ??
+        ''}}</span>
+      <span *ngIf="!isNewUser && !isEditable">View Information of {{user?.firstName ?? ''}} {{user?.lastName ??
+        ''}}</span>
+    </h4>
+  </div>
+  <div *ngIf="!isNewUser && !isEditable" class="action text-right pt-3">
+    <button nbButton outline status="danger" class="mr-2 col-3" (click)="spawnDelDialog(delUsrDialog)">Delete</button>
+    <button nbButton status="primary" class="col-3" (click)="editUser()">Edit</button>
+  </div>
+</div>
+<div class="row">
+  <nb-card class="col" accent="primary">
+    <ngx-user-form [loading]="" [userData]="user" [action]="action" [isNewUser]="isNewUser"
+                   (onSubmit)="onFormSubmit($event)" (onCancel)="onFormCancel()"></ngx-user-form>
+    <nb-card-footer class="text-right">
+      <nav class="navigation">
+        <a href="#" (click)="back()" class="link text-decoration-none" aria-label="Back">
+          <nb-icon icon="arrow-back"></nb-icon> Go Back to List of Users
+        </a>
+      </nav>
+    </nb-card-footer>
+  </nb-card>
+</div>

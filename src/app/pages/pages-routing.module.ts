@@ -14,6 +14,11 @@ const routes: Routes = [{
       component: DashboardComponent,
     },
     {
+      path: 'security',
+      // canActivate: [AdminGuard],
+      loadChildren: () => import('./security/security.module').then(m => m.SecurityModule),
+    },
+    {
       path: 'miscellaneous',
       loadChildren: () => import('./miscellaneous/miscellaneous.module')
         .then(m => m.MiscellaneousModule),

@@ -1,0 +1,7 @@
+<h1 class="mb-4 mt-0">Manage Application Users</h1>
+
+<angular2-smart-table [settings]="config"
+                 [source]="usersSource"
+                 (create)="addNewUser($event)"
+                 (custom)="execCustomAction($event)">
+</angular2-smart-table>

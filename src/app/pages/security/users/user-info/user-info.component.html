@@ -1,0 +1,61 @@
+<div class="row">
+  <!-- <div class="col col-md-2 col-xxl-3">
+           <img src="../../../../../assets/images/default-user-avatar.png" style="width: 100%;">
+        </div> -->
+  <div class="col ml-3">
+     <div class="row">
+        <dl class="col row">
+           <dt class="">User Unique ID: </dt>
+           <dd class="col">{{user?.id}}</dd>
+        </dl>
+     </div>
+
+     <div class="row">
+        <dl class="col col-md-6 row">
+           <dt class="">First Name: </dt>
+           <dd class="col">{{user?.firstName}}</dd>
+        </dl>
+        <dl class="col col-md-6 row">
+           <dt class="">Last Name: </dt>
+           <dd class="col">{{user?.lastName}}</dd>
+        </dl>
+     </div>
+     <div class="row">
+        <dl class="col col-md-6 row">
+           <dt class="">E-mail Address: </dt>
+           <dd class="col">{{user?.email}}</dd>
+        </dl>
+        <dl class="col col-md-6 row">
+           <dt class="">Username: </dt>
+           <dd class="col">{{user?.username}}</dd>
+        </dl>
+     </div>
+     <div class="row">
+        <!-- <dl class="col col-md-6 row">
+           <dt class="">Department(s): </dt>
+           <dd class="col">
+              <ul class="list-unstyled" *ngIf="user?.departments">
+                 <li *ngFor="let dept of user.departments">{{dept.name}}</li>
+              </ul>
+           </dd>
+        </dl> -->
+        <dl class="col col-md-6 row">
+           <dt class="">User role(s): </dt>
+           <dd class="col">{{user?.role?.name}}</dd>
+        </dl>
+     </div>
+
+     <div class="row">
+        <dl class="col row">
+           <dt class="">User Status: </dt>
+           <dd class="col">
+              <span *ngIf="user?.status">{{user?.status}}, </span>
+              <span *ngIf="user?.blocked">blocked, </span>
+              <span *ngIf="!user?.blocked">unblocked, </span>
+              <span *ngIf="user?.confirmed">confirmed </span>
+              <span *ngIf="!user?.confirmed">unconfirmed </span>
+           </dd>
+        </dl>
+     </div>
+  </div>
+</div>

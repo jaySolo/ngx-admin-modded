@@ -1,0 +1,79 @@
+<form class="content pt-5" [formGroup]="userForm" (ngSubmit)="onSubmitClick()">
+  <!-- <input nbInput type="hidden" id="id" name="id" formControlName="id" /> -->
+  <div class="row">
+    <div class="col col-md-2 col-xxl-3 pl-5 pr-5">
+      <img src="../../../../../assets/images/default-user-avatar.png" style="width: 100%;">
+    </div>
+    <div class="col mt-md-2">
+      <div class="form-row">
+        <div class="form-group col col-md-6">
+          <label for="first_name" class="small-caps">First Name</label>
+          <input nbInput id="first_name" name="first_name" formControlName="first_name"
+                 type="text" class="form-control" placeholder="First Name"/>
+        </div>
+        <div class="form-group col col-md-6">
+          <label for="last_name" class="small-caps">Last Name</label>
+          <input nbInput id="last_name" name="last_name" formControlName="last_name"
+                 type="text" class="form-control" placeholder="Last name">
+        </div>
+      </div>
+      <div class="form-row mt-1">
+        <div class="form-group col col-md-6">
+          <label for="username" class="small-caps">Username</label>
+          <input nbInput id="username" name="username" formControlName="username"
+                 type="text" class="form-control" placeholder="UserName">
+        </div>
+        <div class="form-group col col-md-6">
+          <label for="email" class="small-caps">E-mail Address</label>
+          <input nbInput id="email" name="email" formControlName="email"
+                 type="email" class="form-control" placeholder="mailaddress@some.domain">
+        </div>
+      </div>
+      <div class="form-row mt-1" *ngIf="isNewUser">
+        <div class="form-group col col-md-6">
+          <label for="password" class="small-caps">New Password</label>
+          <input nbInput id="password" name="password" formControlName="password"
+                 type="password" class="form-control" placeholder="●●●●●●●●" autocomplete="new-password">
+        </div>
+        <div class="form-group col col-md-6">
+          <label for="confirmPassword" class="small-caps">Confirm New Password</label>
+          <input nbInput id="confirmPassword" name="confirmPassword" formControlName="confirmPassword"
+                 type="password" class="form-control" placeholder="●●●●●●●●" autocomplete="new-password">
+        </div>
+      </div>
+      <!-- <div class="form-row">
+        <div class="form-group col col-md-6">
+          <label for="email" class="w-100">User Role(s)</label>
+          < ! -- <nb-select class="w-100" multiple placeholder="Select user role(s)"> -- >
+          <nb-select class="w-100" placeholder="Select user role(s)" [formControl]="roleFormCtrl">
+            <nb-option *ngFor="let role of roles" [value]="role.id">{{role.name}}</nb-option>
+          </nb-select>
+        </div>
+      </div> -->
+      <div class="form-row">
+        <label class="w-100 small-caps">Status</label>
+        <div class="form-group col col-md-4">
+          <nb-radio-group formControlName="status">
+            <nb-radio style="display: inline-block;" value="active">Active</nb-radio>
+            <nb-radio style="display: inline-block;" value="archived">Archived</nb-radio>
+          </nb-radio-group>
+        </div>
+        <div class="form-group col col-md-4">
+          <nb-toggle id="blocked" name="blocked" formControlName="blocked">Blocked</nb-toggle>
+        </div>
+        <div class="form-group col col-md-4">
+          <nb-toggle id="confirmed" name="confirmed" formControlName="confirmed">Confirmed</nb-toggle>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row text-center mt-3" *ngIf="(action?.includes('edit') ?? false) || isNewUser">
+    <input type="submit" value="Submit" class="offset-md-4 col-3 btn btn-primary"
+            [disabled]="submitting" [nbSpinner]="submitting"/>
+    <button type="button" class="ml-md-2 col-md-3 btn btn-outline-danger"
+            (click)="cancelEditing()">
+      Cancel
+    </button>
+  </div>
+</form>
