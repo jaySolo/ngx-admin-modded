@@ -3,8 +3,17 @@
 /tmp
 /out-tsc
 
-# dependencies
-/node_modules
+# dependencies (a.k.a Node modules (Yarn 1))
+node_modules/
+
+# Yarn 2+ files you should ignore
+.yarn/install-state.gz
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+
+# Optional: Ignore editor SDKs if not needed in the repo
+.yarn/sdks/
 
 # IDEs and editors
 /.idea
@@ -37,6 +46,11 @@ testem.log
 /e2e/*.js
 /e2e/*.map
 
+# Log files
+yarn-error.log
+npm-debug.log
+
 # System Files
 .DS_Store
 Thumbs.db
+
