@@ -14,5 +14,34 @@ import { MENU_ITEMS } from './pages-menu';
 })
 export class PagesComponent {
 
-  menu = MENU_ITEMS;
+  menu: NbMenuItem[] = MENU_ITEMS;  // [];
+
+  // ngOnInit(): void {
+  //   this.loadAuthorizedMenuItems(MENU_ITEMS);
+  // }
+
+
+  // private loadAuthorizedMenuItems(items: (NbMenuItem | any)[]): void {
+  //   items.forEach(item => {
+  //     if (item.permissions === null) {
+  //       this.menu.push(item);
+  //     } else {
+  //       const permCombo = item.permissions.combination.toLowerCase();
+
+  //       let hasAccess: boolean = permCombo === 'all' ? true : permCombo === 'any';
+
+  //       item.permissions.list.forEach(permission => {
+  //         const hasItemPerm = this.acl.can(this.userRole, permission.access, permission.resource);
+
+  //         hasAccess = permCombo === 'all' ? hasAccess && hasItemPerm : (
+  //           permCombo === 'any' ? hasAccess || hasItemPerm : false
+  //         );
+  //       });
+
+  //       if (hasAccess === true) {
+  //         this.menu.push(item);
+  //       }
+  //     }
+  //   });
+  // }
 }
